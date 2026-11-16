@@ -53,11 +53,12 @@
 
 ![VidoyStrap personalization page](Images/screenshot-personalization.png)
 
-- **Pick the accent colour yourself** — the whole app repaints the moment you click a swatch. Neon red, red, neon violet, violet, neon green, green, neon yellow, yellow, orange, neon cyan, blue, pink, magenta and white are on the palette, and `Sistema` keeps following your Windows accent.
-- **Any colour you want** — type a hex code (`#B026FF`, `#39FF14`, whatever) and hit *Aplicar*. It is stored in `Settings.json`, so it survives restarts and updates.
-- **Live, everywhere** — the accent is pushed into the theme resources, so already-open windows change too: buttons, toggles, selection rails, the About frame. No restart.
-- **Backdrop on or off** — the animated image behind the window content is a toggle. Turn it off and you get the plain theme back; the VidoyStrap wordmark stays.
-- **Animation on or off** — keep the backdrop but freeze the GIF on its first frame if you'd rather not have motion behind the text.
+- **Pick the accent colour yourself** - the whole app repaints the moment you click a swatch. Neon red, red, neon violet, violet, neon green, green, neon yellow, yellow, orange, neon cyan, blue, pink, magenta and white are on the palette, and `Sistema` keeps following your Windows accent.
+- **Any colour you want** - type a hex code (`#B026FF`, `#39FF14`, whatever) and hit *Aplicar*. It is stored in `Settings.json`, so it survives restarts and updates.
+- **The whole interface, not just the buttons** - the accent is painted into the window shell itself, so the nav rail, cards, panels, inputs, dividers, title bar, selection rails and About frame all follow it. Text that sits on an accent surface switches to black or white automatically so bright neons stay readable.
+- **Live, everywhere** - every open window repaints on the spot, including the About window and dialogs. No restart.
+- **Backdrop on or off** - the animated image behind the window content is a toggle. Turn it off and the accent shell stays; the VidoyStrap wordmark stays too.
+- **Animation on or off** - keep the backdrop but freeze the GIF on its first frame if you'd rather not have motion behind the text.
 
 ### Clean install, clean removal
 

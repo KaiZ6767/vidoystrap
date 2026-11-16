@@ -320,6 +320,10 @@ namespace Bloxstrap
 
                 Settings.Load();
 
+                // paint the accent into the application resources before any window exists,
+                // so the bootstrapper and dialogs never flash the stock blue first
+                UI.Utility.Branding.ApplyAccent();
+
                 State.Load();
                 RobloxState.Load();
                 FastFlags.Load();

@@ -11,9 +11,12 @@
         <Image x:Name="BackdropImage"
                Source="/Resources/VidoyStrapBackdrop.png"
                Stretch="UniformToFill"
-               Opacity="0.18"
+               Opacity="0.16"
                RenderOptions.BitmapScalingMode="NearestNeighbor"
                SnapsToDevicePixels="True" />
+
+        <!-- carries the chosen accent into the artwork, on top of the accent-tinted window shell -->
+        <Rectangle x:Name="BackdropTint" Opacity="0.14" />
 
         <TextBlock Text="VidoyStrap"
                    HorizontalAlignment="Right"
@@ -21,8 +24,8 @@
                    Margin="0,46,26,0"
                    FontSize="26"
                    FontWeight="Bold"
-                   Opacity="0.34"
+                   Opacity="0.45"
                    TextOptions.TextFormattingMode="Ideal"
-                   Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
     </Grid>
 </UserControl>

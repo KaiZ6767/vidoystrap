@@ -10,7 +10,8 @@ namespace Bloxstrap.UI.Elements.Controls
     /// <summary>
     /// Branding layer that sits under the window content: the VidoyStrap artwork in the
     /// background plane and a persistent "VidoyStrap" wordmark. Never takes input.
-    /// Visibility and animation are driven by the personalization settings.
+    /// Visibility and animation are driven by the personalization settings, and the artwork
+    /// is tinted with the chosen accent so the backdrop follows the theme too.
     /// </summary>
     public partial class BrandBackdrop : UserControl
     {
@@ -49,6 +50,9 @@ namespace Bloxstrap.UI.Elements.Controls
             bool animate = show && App.Settings.Prop.AnimateBackdrop;
 
             BackdropImage.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+            BackdropTint.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+
+            ApplyTint();
 
             if (!show)
             {
@@ -60,6 +64,16 @@ namespace Bloxstrap.UI.Elements.Controls
                 StartAnimation();
             else
                 StopAnimation();
+        }
+
+        private void ApplyTint()
+        {
+            Color accent = Branding.EffectiveAccent;
+
+            var brush = new SolidColorBrush(Color.FromArgb(0xFF, accent.R, accent.G, accent.B));
+            brush.Freeze();
+
+            BackdropTint.Fill = brush;
         }
 
         private void StartAnimation()

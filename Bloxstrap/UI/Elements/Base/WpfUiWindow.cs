@@ -28,6 +28,28 @@ namespace Bloxstrap.UI.Elements.Base
         public WpfUiWindow()
         {
             ApplyTheme();
+
+            Loaded += WpfUiWindow_Loaded;
+            Closed += WpfUiWindow_Closed;
+        }
+
+        private void WpfUiWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Loaded can fire more than once if the visual tree is re-parented
+            UI.Utility.Branding.Changed -= Branding_Changed;
+            UI.Utility.Branding.Changed += Branding_Changed;
+        }
+
+        private void WpfUiWindow_Closed(object? sender, EventArgs e)
+        {
+            // the event is static: a window that stays subscribed outlives its own resources
+            UI.Utility.Branding.Changed -= Branding_Changed;
+        }
+
+        private void Branding_Changed(object? sender, EventArgs e)
+        {
+            // live accent switch: the window keeps its own copy of the shell keys
+            UI.Utility.Branding.ApplyAccent(this.Resources);
         }
 
         public void ApplyTheme(bool useAcrylic = true)
@@ -40,8 +62,6 @@ namespace Bloxstrap.UI.Elements.Base
 
             // there doesn't seem to be a way to query the name for merged dictionaries
             var dict = new ResourceDictionary { Source = new Uri($"pack://application:,,,/UI/Style/{Enum.GetName(App.Settings.Prop.Theme.GetFinal())}.xaml") };
-
-            this.Resources["MainWindowBackgroundBrush"] = new SolidColorBrush(Color.FromArgb(1, 0, 0, 0));
 
             //if (App.Settings.Prop.UseAcrylicBackground && useAcrylic)
             //{
@@ -69,6 +89,9 @@ namespace Bloxstrap.UI.Elements.Base
             //}
 
             Application.Current.Resources.MergedDictionaries[customThemeIndex] = dict;
+
+            // the window may hold its own copies of the theme keys, so push the accent into both levels
+            UI.Utility.Branding.ApplyAccent(this.Resources);
 
 #if QA_BUILD
             this.BorderBrush = System.Windows.Media.Brushes.Red;
