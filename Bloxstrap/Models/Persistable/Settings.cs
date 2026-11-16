@@ -66,5 +66,11 @@ namespace Bloxstrap.Models.Persistable
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
+
+        // personalization
+        // "" = follow the Windows accent colour
+        public string AccentColor { get; set; } = "";
+        public bool ShowBackdrop { get; set; } = true;
+        public bool AnimateBackdrop { get; set; } = true;
     }
 }

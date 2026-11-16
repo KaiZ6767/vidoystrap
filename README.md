@@ -49,6 +49,16 @@
 - **Branding that stays out of the way** — the VidoyStrap wordmark and animated backdrop sit under the window content at low opacity, so nothing is obscured.
 - **Localized UI** — around twenty languages shipped, English and Spanish included.
 
+### Personalization
+
+![VidoyStrap personalization page](Images/screenshot-personalization.png)
+
+- **Pick the accent colour yourself** — the whole app repaints the moment you click a swatch. Neon red, red, neon violet, violet, neon green, green, neon yellow, yellow, orange, neon cyan, blue, pink, magenta and white are on the palette, and `Sistema` keeps following your Windows accent.
+- **Any colour you want** — type a hex code (`#B026FF`, `#39FF14`, whatever) and hit *Aplicar*. It is stored in `Settings.json`, so it survives restarts and updates.
+- **Live, everywhere** — the accent is pushed into the theme resources, so already-open windows change too: buttons, toggles, selection rails, the About frame. No restart.
+- **Backdrop on or off** — the animated image behind the window content is a toggle. Turn it off and you get the plain theme back; the VidoyStrap wordmark stays.
+- **Animation on or off** — keep the backdrop but freeze the GIF on its first frame if you'd rather not have motion behind the text.
+
 ### Clean install, clean removal
 
 - Installs to `%LOCALAPPDATA%\VidoyStrap`, registers itself in Windows *Apps & features*, and writes normal uninstall information.
@@ -95,11 +105,16 @@ The WPF UI toolkit shipped in `wpfui\` is vendored source, not a submodule — i
 | `Bloxstrap\Installer.cs` | VidoyStrap's own install, upgrade and uninstall |
 | `Bloxstrap\Integrations\` | Discord RPC/invites, cache cleaner, process watcher |
 | `Bloxstrap\UI\Elements\Settings\Pages\` | Every settings page |
+| `Bloxstrap\UI\Utility\Branding.cs` | Accent palette, hex parsing, live resource repaint |
 | `Bloxstrap\UI\Elements\Controls\BrandBackdrop.xaml` | Animated backdrop + wordmark layer |
 | `Bloxstrap\Resources\` | Icons, backdrop assets, localization `.resx` files |
 
 ## Credits
 
+![VidoyStrap about window](Images/screenshot-about.png)
+
 Built on [Bloxstrap](https://github.com/bloxstraplabs/bloxstrap) (see `LICENSE.Bloxstrap`), with [WPF UI](https://github.com/lepoco/wpfui) for the Fluent controls. Server details via [Valra](https://github.com/NotValra)'s API.
 
 VidoyStrap is not affiliated with Roblox Corporation or any of the projects above.
+
+Hecho por Vidoy y KaiZ.
